@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { SimpleContextProvider } from 'context/SimpleContext'
+import { FirstChildComponent } from 'components/FirstChildComponent'
+import { AnotherFirstLevelComponent } from 'components/AnotherFirstLevelComponent'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SimpleContextProvider>
+        <header>App root</header>
+        <FirstChildComponent />
+        <AnotherFirstLevelComponent />
+      </SimpleContextProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
